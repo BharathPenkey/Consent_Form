@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobius Consent Form </title>
+    <title>Mobius Consent Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +12,7 @@
             padding: 20px;
             background-color: #f4f4f9;
         }
+
         .form-container {
             max-width: 400px;
             margin: auto;
@@ -19,63 +21,112 @@
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .form-container h1 {
             text-align: center;
             margin-bottom: 20px;
         }
+
         .form-container label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
         }
-        .form-container input, .form-container button {
+
+        .form-container input,
+        .form-container button {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        #consent {
-            padding-left: 2vw;
-            color: #4caf50;
-            border: 1px solid red;
-            background-color: #4caf50;
+        .form-container input{
+            width: 95%;
         }
+
         .form-container button {
+            margin-top: 3px;
             background-color: #4caf50;
             color: #fff;
             border: none;
         }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 12px;
+            /* padding-bottom: 8px; */
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: max-content;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .form-container input,
+            .form-container button {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .checkbox-container {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .checkbox-container label {
+                width: max-content;
+                /* margin-bottom: 0; */
+                font-size: 14px;
+            }
+            .checkbox-container input{
+                width: max-content;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="form-container">
-        <h1>Consent Form</h1>
+        <h1>Mobius Consent Form</h1>
         <form id="consentForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            
-            <label for="consent">Consent:</label>
-            <input type="checkbox" id="consent" name="consent" required>
+
+            <div class="checkbox-container">
+                <label for="consent">Consent:</label>
+                <input type="checkbox" id="consent" name="consent" required>
+            </div>
             <label for="consent">I consent to receive communications from Mobius</label>
-            
             <button type="submit">Submit Consent</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('consentForm').addEventListener('submit', function(event) {
+        document.getElementById('consentForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form redirection
-            
+
             // Show success message
             alert('Your consent has been submitted successfully!');
-            
+
             // Clear form fields
             event.target.reset();
         });
     </script>
 </body>
+
 </html>
